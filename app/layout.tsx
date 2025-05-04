@@ -1,9 +1,9 @@
 // app/layout.tsx
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css'; // <<< Import globals.css HERE
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import './globals.css'; // Import global styles
+import Header from '@/components/Header'; // Assumes Header component exists in /components
+import Footer from '@/components/Footer'; // Assumes Footer component exists in /components
 
 const inter = Inter({
   subsets: ['latin'],
@@ -45,19 +45,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full`}>
-      {/* Apply base font, ensure full height layout */}
       <body className="font-sans flex flex-col min-h-full bg-gray-50">
-        <Header /> {/* Renders the sticky header */}
-
-        {/* Main content area grows to fill space */}
-        {/* Padding top MUST match the actual height of the Header */}
-        {/* Inspect the header height in dev tools if unsure */}
-        {/* Using example values, ADJUST AS NEEDED */}
+        <Header />
+        {/* Adjust pt value based on final Header height */}
         <main className="flex-grow pt-[68px] md:pt-[76px]">
             {children}
         </main>
-
-        <Footer /> {/* Renders the footer at the bottom */}
+        <Footer />
       </body>
     </html>
   );

@@ -35,18 +35,12 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Embed JSON-LD for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-
-      {/* Render Page Sections */}
-      {/* Hero is full width */}
       <Hero />
-
-      {/* Container for subsequent sections with max-width and horizontal padding */}
-      {/* Vertical spacing is handled by the .section class margin (my-8 md:my-12) */}
+      {/* Container for subsequent sections */}
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
          <ServicesSection />
          <WhyChooseUs />

@@ -1,5 +1,5 @@
 // tailwind.config.js
-// Location: git-rbautomotive/tailwind.config.js
+// Location: rb-automotive-fresh-start/tailwind.config.js
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -11,7 +11,6 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        // Assumes --font-inter is set in layout.tsx via next/font
         sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui'],
         // heading: ['Quincy', 'ui-serif', 'Georgia'], // Add if Quincy is loaded via CSS
       },
@@ -41,26 +40,14 @@ const config = {
         'btn-hover': '0 6px 8px rgba(0, 0, 0, 0.2)',
       },
       colors: {
-         'brand-red': {
-            DEFAULT: '#dc2626', // red-600
-            dark: '#b91c1c',   // red-700
-            darker: '#991b1b', // red-800
-            light: '#ef4444',  // red-500
-         },
-         'brand-gray': {
-            light: '#f3f4f6',  // gray-100
-            DEFAULT: '#6b7280', // gray-500
-            medium: '#4b5563', // gray-600
-            dark: '#374151',   // gray-700
-            darker: '#1f2937', // gray-800
-            darkest: '#111827', // gray-900
-         }
+         'brand-red': { DEFAULT: '#dc2626', dark: '#b91c1c', darker: '#991b1b', light: '#ef4444' },
+         'brand-gray': { light: '#f3f4f6', DEFAULT: '#6b7280', medium: '#4b5563', dark: '#374151', darker: '#1f2937', darkest: '#111827' }
       }
     },
   },
   plugins: [
-      // Plugin for text-shadow utilities
-      function ({ addUtilities }) {
+      // Using 'any' type for addUtilities parameter to avoid potential TS errors
+      function ({ addUtilities }: { addUtilities: any }) {
           addUtilities({
               '.text-shadow-md': { textShadow: '0 2px 4px rgba(0,0,0,0.15)' },
               '.text-shadow-sm': { textShadow: '0 1px 2px rgba(0,0,0,0.1)' },
@@ -68,5 +55,4 @@ const config = {
       }
   ],
 };
-
 module.exports = config;
